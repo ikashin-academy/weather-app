@@ -1,11 +1,9 @@
 import React from "react";
-import { StatusBar } from "expo-status-bar";
 import { StyleSheet, Text, View, Alert } from "react-native";
-import Loading from "./Loading";
+import { Loading, Weather } from "./components";
 import * as Location from "expo-location";
 import axios from "axios";
 import { API_KEY } from "./const";
-import Weather from "./Weather";
 
 export default class App extends React.Component {
   state = {
@@ -24,7 +22,7 @@ export default class App extends React.Component {
 
     this.setState({ isLoading: false, temp, condition: weather[0].main });
 
-    console.log({ data });
+    console.log(weather, temp);
   };
 
   getLocation = async () => {
